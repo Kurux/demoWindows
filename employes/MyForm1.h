@@ -399,8 +399,14 @@ namespace employes {
 		txtEtat->Text = "";
 	}
 
-	private: System::Void btnRechercherTache_Click(System::Object^  sender, System::EventArgs^  e) {
+	private: System::Void btnRechercherTache_Click(System::Object^  sender, System::EventArgs^  e) 
+	{
+		Tache tacheAffiche;
+		tacheAffiche=lesDonneesDuProgramme.ChercherTacheParIdentifiant(msclr::interop::marshal_as<std::string>(txtIdentifiant->Text));
+		txtTitre->Text = gcnew String(tacheAffiche.getTitre().c_str());
+		txtDuree->Text = tacheAffiche.getDuree().ToString();
+		txtMesure->Text = gcnew String(tacheAffiche.getUniteMesure().c_str());
+		txtEtat->Text = gcnew String(tacheAffiche.getEtatAvancement().c_str());
 	}
-
 };
 }
