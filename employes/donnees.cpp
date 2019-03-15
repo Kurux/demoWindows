@@ -53,6 +53,7 @@ bool Donnees::AjouterTache(Tache inTache)
 		if (lesTaches[cpt] == NULL)
 		{
 			lesTaches[cpt] = new Tache(inTache);
+			ajoutReussi = true;
 		}
 		cpt++;
 	}
