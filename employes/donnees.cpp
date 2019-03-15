@@ -67,6 +67,17 @@ Employe Donnees::ChercherEmployeSelonNumero(string inNumero)
 Tache Donnees::ChercherTacheParIdentifiant(string inId)
 {
 	Tache tacheTrouve;
-
+	int cpt = 0;
+	while (cpt < maxTaches && tacheTrouve.getIdentifiant()!=inId)
+	{
+		if (lesTaches[cpt]!=NULL)
+		{
+			if (lesTaches[cpt]->getIdentifiant() == inId)
+			{
+				tacheTrouve = *lesTaches[cpt];
+			}
+			cpt++;
+		}
+	}
 	return tacheTrouve;
 }
